@@ -233,7 +233,7 @@ local ToolTip_Label = Instance.new("TextLabel")
 local Modal = Instance.new("TextButton")
 
 Menu_Frame.Name = "Menu"
-Menu_Frame.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+Menu_Frame.BackgroundColor3 = Color3.fromRGB(105, 105, 105)
 Menu_Frame.BorderColor3 = Color3.fromRGB(40, 40, 40)
 Menu_Frame.BorderMode = Enum.BorderMode.Inset
 Menu_Frame.Position = UDim2.new(0.5, -250, 0.5, -275)
@@ -279,7 +279,7 @@ MenuScaler_Button.InputEnded:Connect(function(Input, Process)
 end)
 
 Icon_Image.Name = "Icon"
-Icon_Image.BackgroundTransparency = 1
+Icon_Image.BackgroundTransparency = 0
 Icon_Image.Position = UDim2.new(0, 5, 0, 0)
 Icon_Image.Size = UDim2.fromOffset(15, 15)
 Icon_Image.Image = "rbxassetid://"
@@ -299,7 +299,7 @@ Title_Label.RichText = true
 Title_Label.Parent = Menu_Frame
 
 TabHandler_Frame.Name = "TabHandler"
-TabHandler_Frame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+TabHandler_Frame.BackgroundColor3 = Color3.fromRGB(105, 105, 105)
 TabHandler_Frame.BorderColor3 = Color3.fromRGB(40, 40, 40)
 TabHandler_Frame.BorderMode = Enum.BorderMode.Inset
 TabHandler_Frame.Position = UDim2.new(0, 4, 0, 19)
@@ -327,7 +327,7 @@ Notifications_Frame.ZIndex = 5
 Notifications_Frame.Parent = Menu.Screen
 
 ToolTip_Label.Name = "ToolTip"
-ToolTip_Label.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+ToolTip_Label.BackgroundColor3 = Color3.fromRGB(105, 105, 105)
 ToolTip_Label.BorderColor3 = Menu.BorderColor
 ToolTip_Label.BorderMode = Enum.BorderMode.Inset
 ToolTip_Label.AutomaticSize = Enum.AutomaticSize.XY
@@ -421,7 +421,7 @@ local function ChangeTab(Tab_Name: string)
     end
     local Tab = GetTab(Tab_Name)
     Tab.self.Visible = true
-    Tab.Button.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    Tab.Button.BackgroundColor3 = Color3.fromRGB(105, 105, 105)
     Tab.Button.TextColor3 = Color3.new(1, 1, 1)
 
     SelectedTab = Tab
@@ -667,7 +667,7 @@ function Menu.Container(Tab_Name: string, Container_Name: string, Side: string):
 
 
     Frame.Name = "Container"
-    Frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    Frame.BackgroundColor3 = Color3.fromRGB(105, 105, 105)
     Frame.BorderColor3 = Color3.new()
     Frame.BorderMode = Enum.BorderMode.Inset
     Frame.Size = UDim2.new(1, -6, 0, 0)
@@ -2721,7 +2721,7 @@ Menu.Tab("Aimbot")
 Menu.Tab("Visuals")
 Menu.Tab("Settings")
 
-Menu:SetTitle("fentanyl | Free version")
+Menu:SetTitle("fentanyl | Private version")
 Menu:SetVisible(true)
 Menu:Init()
 
