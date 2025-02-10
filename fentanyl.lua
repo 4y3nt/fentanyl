@@ -2717,11 +2717,8 @@ Skibidi = getgenv().Skibidi
 
 Menu:SetSize(650, 750)
 Menu.Notify("fentanyl has been injected", 5)
-Menu.Tab("Rage")
-Menu.Tab("Legit")
-Menu.Tab("Anti Aim")
+Menu.Tab("Aimbot")
 Menu.Tab("Visuals")
-Menu.Tab("world")
 Menu.Tab("Settings")
 
 Menu:SetTitle("fentanyl | Private version")
@@ -2731,12 +2728,10 @@ Menu:Init()
 -- u can add the changing text by skidding from gamesneeze or tyrisware text changer
 
 -- also use the source for a better understanding on how to add toggles, dropdowns, keybinds and more
-Menu.Container("Rage", "Aim Assist", "Left")
-Menu.Container("Legit", "Aim Assist", "Left")
-Menu.Container("Anti Aim", "Config", "Left")
-Menu.Container("Visuals", "Aim Assist", "Left")
-Menu.Container("World", "Aim Assist", "Left")
+
 Menu.Container("Aimbot", "Aim Assist", "Left")
+Menu.Container("Settings", "Config", "Left")
+Menu.Container("Visuals", "Esp", "Left")
 
 Menu.CheckBox("Aimbot", "Aim Assist", "Enabled", false, function(x) -- creating a toggle, replace "Main" with your tab name, and replace "Target Aimbot" with ur section name.
     Skibidi.Enabled = x
@@ -2841,10 +2836,10 @@ end
 
 UserInputService.InputBegan:Connect(function(key, gameProcessedEvent)
     if key.KeyCode == Skibidi.Keybind and Skibidi.Enabled == true and not gameProcessedEvent then
-        if AimbotTarget == nil then
-            AimbotTarget = GetClosestToMouse()
-        elseif AimbotTarget ~= nil then
-            AimbotTarget = nil
+        if legitTarget == nil then
+            legitTarget = GetClosestToMouse()
+        elseif legitTarget ~= nil then
+            legitTarget = nil
         end
     end    
 
@@ -2857,17 +2852,17 @@ end)
 
 RunService.RenderStepped:Connect(function(DeltaTime)
 
-    if Skibidi.Resolver and AimbotTarget ~= nil and AimbotTarget.Character then
+    if Skibidi.Resolver and legitTarget ~= nil and legitTarget.Character then
         if ResolverVersion == "Recalculate" then
-            get_calculated_velocity(AimbotTarget)
-        elseif ResolverVersion == "MoveDirection" and AimbotTarget.Character:FindFirstChild("HumanoidRootPart") then
-            AimbotTarget.Character.HumanoidRootPart.Velocity = AimbotTarget.Character.Humanoid.MoveDirection * math.random(16, 17)
+            get_calculated_velocity(legitTarget)
+        elseif ResolverVersion == "MoveDirection" and legitTarget.Character:FindFirstChild("HumanoidRootPart") then
+            legitTarget.Character.HumanoidRootPart.Velocity = legitTarget.Character.Humanoid.MoveDirection * math.random(16, 17)
         end
     end
 
-    if AimbotTarget ~= nil and AimbotTarget.Character and AimbotTarget.Character:FindFirstChild("HumanoidRootPart") then
-        Camera.CFrame = CFrame.new(Camera.CFrame.p, AimbotTarget.Character.HumanoidRootPart.CFrame.Position
-        +AimbotTarget.Character.HumanoidRootPart.Velocity
+    if legitTarget ~= nil and legitTarget.Character and legitTarget.Character:FindFirstChild("HumanoidRootPart") then
+        Camera.CFrame = CFrame.new(Camera.CFrame.p, legitTarget.Character.HumanoidRootPart.CFrame.Position
+        +legitTarget.Character.HumanoidRootPart.Velocity
         *Skibidi.Prediction)
     end
 end)    
