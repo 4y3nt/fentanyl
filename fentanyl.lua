@@ -2717,8 +2717,11 @@ Skibidi = getgenv().Skibidi
 
 Menu:SetSize(650, 750)
 Menu.Notify("fentanyl has been injected", 5)
-Menu.Tab("Aimbot")
+Menu.Tab("Rage")
+Menu.Tab("Legit")
+Menu.Tab("Anti Aim")
 Menu.Tab("Visuals")
+Menu.Tab("world")
 Menu.Tab("Settings")
 
 Menu:SetTitle("fentanyl | Private version")
@@ -2728,10 +2731,12 @@ Menu:Init()
 -- u can add the changing text by skidding from gamesneeze or tyrisware text changer
 
 -- also use the source for a better understanding on how to add toggles, dropdowns, keybinds and more
-
+Menu.Container("Rage", "Aim Assist", "Left")
+Menu.Container("Legit", "Aim Assist", "Left")
+Menu.Container("Anti Aim", "Config", "Left")
+Menu.Container("Visuals", "Aim Assist", "Left")
+Menu.Container("World", "Aim Assist", "Left")
 Menu.Container("Aimbot", "Aim Assist", "Left")
-Menu.Container("Settings", "Config", "Left")
-Menu.Container("Visuals", "Esp", "Left")
 
 Menu.CheckBox("Aimbot", "Aim Assist", "Enabled", false, function(x) -- creating a toggle, replace "Main" with your tab name, and replace "Target Aimbot" with ur section name.
     Skibidi.Enabled = x
