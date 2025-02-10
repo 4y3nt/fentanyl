@@ -245,7 +245,7 @@ CreateLine(Menu_Frame, UDim2.new(1, -8, 0, 1), UDim2.new(0, 4, 0, 15))
 SetDraggable(Menu_Frame)
 
 MenuScaler_Button.Name = "MenuScaler"
-MenuScaler_Button.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+MenuScaler_Button.BackgroundColor3 = Color3.fromRGB(105, 105, 105)
 MenuScaler_Button.BorderColor3 = Color3.fromRGB(40, 40, 40)
 MenuScaler_Button.BorderSizePixel = 0
 MenuScaler_Button.Position = UDim2.new(1, -15, 1, -15)
