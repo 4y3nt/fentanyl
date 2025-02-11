@@ -1,4 +1,4 @@
-setfpscap(1000)
+setfpscap(0)
 
 
 local Settings = {
