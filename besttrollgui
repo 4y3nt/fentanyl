@@ -1,0 +1,72 @@
+-- Function to create the ScreenGui and TextLabel
+local function createScreenGui()
+    -- Create a ScreenGui
+    local screenGui = Instance.new("ScreenGui")
+    screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+    -- Create a frame that covers the entire screen (background color set to black)
+    local frame = Instance.new("Frame")
+    frame.Size = UDim2.new(1, 0, 1, 0)  -- Cover full screen
+    frame.Position = UDim2.new(0, 0, 0, 0)
+    frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)  -- Black background color
+    frame.BackgroundTransparency = 0  -- Make the background slightly transparent
+    frame.Parent = screenGui
+
+    -- Create a TextLabel (to display text)
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Size = UDim2.new(1, 0, 1, 0)  -- Stretch the text label across the screen
+    textLabel.Position = UDim2.new(0, 0, 0, 0)  -- Center the text label
+    textLabel.Text = [[
+     Ur Pc
+      HAS BEEN
+       ENCRYPTED
+    ]]  -- The pattern you requested
+    textLabel.TextColor3 = Color3.fromRGB(0, 0, 255)  -- Blue text color
+    textLabel.TextSize = 100  -- Adjust the text size to make the text visible
+    textLabel.TextStrokeTransparency = 0  -- Optional: gives text a stroke for better visibility
+    textLabel.BackgroundTransparency = 1  -- Make the background transparent for the text label
+    textLabel.Parent = frame
+
+    return screenGui, textLabel
+end
+
+-- Function to move the player to the void (fall into the void)
+local function moveToVoid()
+    -- Get the player
+    local player = game.Players.LocalPlayer
+    if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+        -- Get the HumanoidRootPart
+        local rootPart = player.Character.HumanoidRootPart
+
+        -- Set the player position to a very low Y value to send them into the void
+        rootPart.CFrame = CFrame.new(rootPart.Position.X, -10000, rootPart.Position.Z)  -- Y = -10000 to fall into the void
+    end
+end
+
+-- Function to handle character respawn and recreate GUI elements
+local function onCharacterRespawn()
+    -- Create the ScreenGui and TextLabel again after respawn
+    local screenGui, textLabel = createScreenGui()
+
+    -- Loop to repeat both void movement and text display
+    while true do
+        -- Move the player into the void
+        moveToVoid()
+
+        -- Repeat the text display with the updated message
+        textLabel.Text = [[
+     Ur Pc
+     HAS BEEN
+     ENCRYPTED
+    ]]  -- This pattern or message is shown on the screen each time
+
+        -- Wait for 2 seconds before the next iteration
+        wait(2)
+    end
+end
+
+-- Connect to the player's character respawn event
+game.Players.LocalPlayer.CharacterAdded:Connect(onCharacterRespawn)
+
+-- Call the function once on script start to set things up initially
+onCharacterRespawn()
